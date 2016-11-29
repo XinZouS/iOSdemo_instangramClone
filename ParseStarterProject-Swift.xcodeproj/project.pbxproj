@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		663B009B1DEB8360001D574A /* ShakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663B009A1DEB8360001D574A /* ShakeTextField.swift */; };
 		666A4E8B1DEA2EED00E1B122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666A4E8A1DEA2EED00E1B122 /* Main.storyboard */; };
+		66D3D4331DECAFC30086938A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3D4321DECAFC30086938A /* TableViewController.swift */; };
+		66D3D4351DED1F6E0086938A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3D4341DED1F6E0086938A /* PostViewController.swift */; };
+		66DB5D651DEDE792009896EE /* FeedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DB5D641DEDE792009896EE /* FeedsTableViewController.swift */; };
+		66DB5D671DEE0BBE009896EE /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DB5D661DEE0BBE009896EE /* FeedsTableViewCell.swift */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
 		81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814C1A49DA1800E65899 /* ViewController.swift */; };
@@ -23,6 +27,10 @@
 /* Begin PBXFileReference section */
 		663B009A1DEB8360001D574A /* ShakeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeTextField.swift; sourceTree = "<group>"; };
 		666A4E8A1DEA2EED00E1B122 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		66D3D4321DECAFC30086938A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		66D3D4341DED1F6E0086938A /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		66DB5D641DEDE792009896EE /* FeedsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewController.swift; sourceTree = "<group>"; };
+		66DB5D661DEE0BBE009896EE /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* ParseStarterProject-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParseStarterProject-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +96,10 @@
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				666A4E8A1DEA2EED00E1B122 /* Main.storyboard */,
+				66D3D4321DECAFC30086938A /* TableViewController.swift */,
+				66D3D4341DED1F6E0086938A /* PostViewController.swift */,
+				66DB5D641DEDE792009896EE /* FeedsTableViewController.swift */,
+				66DB5D661DEE0BBE009896EE /* FeedsTableViewCell.swift */,
 				663B009A1DEB8360001D574A /* ShakeTextField.swift */,
 			);
 			path = ParseStarterProject;
@@ -148,6 +160,7 @@
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 6S4EWJH888;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -188,8 +201,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				66DB5D651DEDE792009896EE /* FeedsTableViewController.swift in Sources */,
+				66DB5D671DEE0BBE009896EE /* FeedsTableViewCell.swift in Sources */,
 				663B009B1DEB8360001D574A /* ShakeTextField.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
+				66D3D4331DECAFC30086938A /* TableViewController.swift in Sources */,
+				66D3D4351DED1F6E0086938A /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 6S4EWJH888;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -290,7 +308,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.Stevens.xzou;
 				PRODUCT_NAME = "ParseStarterProject-Swift";
 				SWIFT_VERSION = 3.0;
 			};
@@ -301,6 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 6S4EWJH888;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -308,7 +327,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.Stevens.xzou;
 				PRODUCT_NAME = "ParseStarterProject-Swift";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;

@@ -8,7 +8,6 @@
 */
 
 import UIKit
-
 import Parse
 
 // If you want to use any of the UI components, uncomment this line
@@ -29,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         
         let parseConfiguration = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
-            ParseMutableClientConfiguration.applicationId = "yourApplicationId"
-            ParseMutableClientConfiguration.clientKey = "yourClientKey"
+            ParseMutableClientConfiguration.applicationId = "yourAppID"
+            ParseMutableClientConfiguration.clientKey = "yourMasterKey"
             ParseMutableClientConfiguration.server = "yourServerAddress"
         })
         

@@ -80,7 +80,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginOrSignUp(_ sender: UIButton) {
         
         if usernameTextField.text == "" || passwordTextField.text == "" {
-            alertViewAnimateIn(txt: alertLabelText)
+            usernameTextField.shake(duration: 0.05, repeatCount: 6)
+            passwordTextField.shake(duration: 0.05, repeatCount: 6)
+            // alertViewAnimateIn(txt: alertLabelText)
 
         }else{
         
@@ -94,7 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             UIApplication.shared.beginIgnoringInteractionEvents() // ----------------------
             
             if loginModeOn { // parse server login:
-                PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!, block: { (user, error) in
+                PFUser.logInWithUsername(inBackground: usernameTextField.text!.lowercased(), password: passwordTextField.text!, block: { (user, error) in
                     
                     self.activityIndicator.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents() // ----------------------
@@ -102,15 +104,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if error != nil {
                         self.alertViewAnimateIn(txt: "Login Failed: \(error!)")
                     }else{
-                        
+                        //--- go Login page ------
+                        self.performSegue(withIdentifier: "showTable", sender: self)
                     }
                 })
                 
             }else{ // parse server signUp:
                 
                 let user = PFUser()
-                user.username = usernameTextField.text
-                user.email = usernameTextField.text
+                user.username = usernameTextField.text!.lowercased()
+                user.email = usernameTextField.text!.lowercased()
                 user.password = passwordTextField.text
                 
                 user.signUpInBackground(block: { (success, error) in
@@ -124,10 +127,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             self.alertViewAnimateIn(txt: errMsg)
                         // }
                     }else{ //sign up success, set local user and go to next page
-                        //......
+                        //--- go sign up page ---
+                        self.performSegue(withIdentifier: "showTable", sender: self)
                     }
                 })
             }
+            //
         }
         
         // animation bounse when tapped:
@@ -135,7 +140,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let bounce = thisBtn.bounds // save its original bounce
         
         UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 6, options: .curveEaseInOut, animations: {
-                thisBtn.bounds = CGRect(x: bounce.origin.x - 20, y: bounce.origin.y, width: bounce.size.width + 20, height: bounce.size.height - 6)
+                thisBtn.bounds = CGRect(x: bounce.origin.x - 0, y: bounce.origin.y, width: bounce.size.width + 20, height: bounce.size.height - 6)
         }, completion: { (success:Bool) in
             if success {
                 UIView.animate(withDuration: 0.5, animations: { thisBtn.bounds = bounce })
@@ -196,14 +201,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        // for alert and blur effect
+        // for alert and blur effect:
         self.visualEffect = blurEffect.effect!
         blurEffect.effect = nil
         alertView.layer.cornerRadius = 7
         
         blurEffect.center = self.view.center + CGPoint(x: blurEffect.frame.width, y: 0)
         
-        print("Finish setting up in viewDidLoad().")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if PFUser.current() != nil {
+            performSegue(withIdentifier: "showTable", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
